@@ -8,7 +8,7 @@ from models import storage
 class BaseModel:
     """This is the base class for managing
     user data and timestamps for creating and
-    updating an instance"""
+    updating an instance."""
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel with unique id and timestamps."""
         if kwargs != {}:
@@ -28,12 +28,12 @@ class BaseModel:
             self.__dict__["updated_at"] = datetime.now()
 
     def save(self):
-        """Updates the updated_at timestamp"""
+        """Updates the updated_at timestamp."""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        """Convert instance to dictionary with ISO format timestamps."""
+        """Converts the instance to a dictionary with ISO format timestamps."""
         new_dict = {}
         new_dict['__class__'] = self.__class__.__name__
         for key, value in self.__dict__.items():
@@ -45,5 +45,5 @@ class BaseModel:
         return new_dict
 
     def __str__(self):
-        """Return string representation of the instance."""
+        """Returns a string representation of the instance."""
         return f'[{self.__class__.__name__}] ({self.id}) {self.__dict__}'

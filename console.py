@@ -6,7 +6,7 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """This object inherits from the cmd class
     to create a custom command interpreter for
-    managing AirBnB clone database"""
+    managing the AirBnB clone database"""
     prompt = "(hbnb) "
 
     def do_quit(self, args):
