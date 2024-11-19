@@ -9,7 +9,7 @@ class BaseModel:
     user data and timestamps for creating and
     updating an instance"""
     def __init__(self, *args, **kwargs):
-        """Initialize a new BaseModel with unique id and timestamps."""
+        """Initializes a new BaseModel with unique id and timestamps."""
         if kwargs != {}:
             for key, value in kwargs.items():
                 if key == "id":
@@ -44,7 +44,7 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        """Convert instance to dictionary with ISO format timestamps."""
+        """Converts the instance to a dictionary with ISO format timestamps."""
         new_dict = {}
         new_dict['__class__'] = self.__class__.__name__
         for key, value in self.__dict__.items():
@@ -56,5 +56,5 @@ class BaseModel:
         return new_dict
 
     def __str__(self):
-        """Return string representation of the instance."""
+        """Returns the string representation of the instance."""
         return f'[{self.__class__.__name__}] ({self.id}) {self.__dict__}'
